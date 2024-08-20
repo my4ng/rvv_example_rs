@@ -4,6 +4,7 @@ extern "C" {
     fn strlen(str: *const std::ffi::c_char) -> usize;
 }
 
+/// Find the length of a C string.
 pub fn strlen_safe(str: &std::ffi::CStr) -> usize {
     unsafe { strlen(str.as_ptr()) }
 }

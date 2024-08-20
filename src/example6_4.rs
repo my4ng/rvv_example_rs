@@ -5,12 +5,6 @@ extern "C" {
 }
 
 /// Widen multiply and right shift by 3.
-///
-/// The result of this function might be a little surprising; The elements are widen multiplied by
-/// the value of `vl`, which is dependent on the `VLEN` and `AVL`. For example, with a `VLEN` of
-/// 256, the vl for all but the last iteration of the loop is `VLMAX = VLEN * LMUL / SEW =
-/// 256 * 4 / 16 = 64`. For the last iteration, it will be the remaining number of elements.
-/// (This is an over-simplication, see section 6 for more details).
 pub fn loop_safe(src: &[i16]) -> Vec<i32> {
     let len = src.len();
     let mut dst = Vec::with_capacity(len);
@@ -27,8 +21,12 @@ mod tests {
 
     #[test]
     fn test() {
-        let src = (0..100).collect::<Vec<_>>();
+        let src = (0..1000).collect::<Vec<_>>();
         let dst = loop_safe(&src);
-        dbg!(dst);
+        let res = src.into_iter().enumerate().map(|(i, n)| {
+            let m = (i & !0b111_111) as i32;
+            (n as i32 * (1000 - m)) >> 3 
+        }).collect::<Vec<_>>();
+        assert_eq!(dst, res);
     }
 }

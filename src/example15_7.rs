@@ -5,6 +5,7 @@ extern "C" {
     fn strncpy(dst: *mut std::ffi::c_char, src: *const std::ffi::c_char, n: usize);
 }
 
+/// Copy a C string into a new one.
 pub fn strcpy_safe(src: &std::ffi::CStr) -> std::ffi::CString {
     let len = src.count_bytes() + 1;
     let mut dst: Vec<u8> = Vec::with_capacity(len);
@@ -15,6 +16,7 @@ pub fn strcpy_safe(src: &std::ffi::CStr) -> std::ffi::CString {
     }
 }
 
+/// Copy a C string into a new one up to length `len`, with padded `\0` if it is not long enough.
 pub fn strncpy_safe(src: &std::ffi::CStr, len: usize) -> std::ffi::CString {
     let mut dst: Vec<u8> = Vec::with_capacity(len + 1);
     unsafe {
