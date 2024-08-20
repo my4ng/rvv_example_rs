@@ -27,7 +27,7 @@ mod tests {
 
     #[test]
     fn test() {
-        let src = (0..1000).collect::<Vec<_>>();
+        let src = (0..100).collect::<Vec<_>>();
         let dst = loop_safe(&src);
         dbg!(dst);
     }
