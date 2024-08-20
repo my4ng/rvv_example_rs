@@ -1,6 +1,6 @@
 # RVV Example
 
-This is a Rust adaptation of the [C example](https://github.com/brucehoult/rvv_example), using the RISC-V Vector extension (RVV) version 1.0 instructions with inline assembly. It is designed to be cross-compiled from a UNIX x86 machine.
+This is a Rust example using the RISC-V Vector extension (RVV) version 1.0 instructions with inline assembly. It is designed to be cross-compiled from a UNIX x86 machine.
 
 ## Prerequisites
 
@@ -18,4 +18,6 @@ This is a Rust adaptation of the [C example](https://github.com/brucehoult/rvv_e
 
 ## License
 
-All files except the `vec.S` assembly file (ported from the original example) are dual-licensed under Apache-2.0/MIT.
+All assembly files (`*.s`) are modified from the RISC-V Vector Extension document under the [Creative Commons Attribution 4.0 International License](https://github.com/riscv/riscv-v-spec/blob/master/LICENSE).
+
+All other files are dual-licensed under Apache-2.0/MIT.
