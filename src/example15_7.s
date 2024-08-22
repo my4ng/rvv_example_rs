@@ -2,7 +2,7 @@
 strcpy:
     mv a2, a0 # Copy dst
 loop:
-    vsetvli t1, zero, e8, m8, ta, ma # Max length vectors of bytes
+    vsetvli t1, x0, e8, m8, ta, ma # Max length vectors of bytes
     vle8ff.v v8, (a1) # Get src bytes
     csrr t1, vl # Get number of bytes fetched
     vmseq.vi v1, v8, 0 # Flag zero bytes
@@ -18,7 +18,7 @@ loop:
 strncpy:
     mv a3, a0 # Copy dst
 loop1:
-    vsetvli zero, a2, e8, m8, ta, ma # Vectors of bytes.
+    vsetvli x0, a2, e8, m8, ta, ma # Vectors of bytes.
     vle8ff.v v8, (a1) # Get src bytes
     vmseq.vi v1, v8, 0 # Flag zero bytes
     csrr t1, vl # Get number of bytes fetched

@@ -23,10 +23,14 @@ mod tests {
     fn test() {
         let src = (0..1000).collect::<Vec<_>>();
         let dst = loop_safe(&src);
-        let res = src.into_iter().enumerate().map(|(i, n)| {
-            let m = (i & !0b111_111) as i32;
-            (n as i32 * (1000 - m)) >> 3 
-        }).collect::<Vec<_>>();
+        let res = src
+            .into_iter()
+            .enumerate()
+            .map(|(i, n)| {
+                let m = (i & !0b111_111) as i32;
+                (n as i32 * (1000 - m)) >> 3
+            })
+            .collect::<Vec<_>>();
         assert_eq!(dst, res);
     }
 }
