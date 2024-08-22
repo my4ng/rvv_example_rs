@@ -6,3 +6,5 @@ pub mod example6_4;
 pub mod example7_7;
 pub mod exampleA_1;
 pub mod exampleA_2;
+pub mod exampleA_3;
+pub mod exampleA_4;
