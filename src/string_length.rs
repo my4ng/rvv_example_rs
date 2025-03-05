@@ -1,4 +1,4 @@
-std::arch::global_asm!(include_str!("example7_7.s"));
+std::arch::global_asm!(include_str!("string_length.s"));
 
 extern "C" {
     fn strlen(str: *const std::ffi::c_char) -> usize;

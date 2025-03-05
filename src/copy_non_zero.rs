@@ -1,4 +1,4 @@
-std::arch::global_asm!(include_str!("example15_8.s"));
+std::arch::global_asm!(include_str!("copy_non_zero.s"));
 
 extern "C" {
     fn compact_non_zero(len: usize, r#in: *const i32, out: *mut i32) -> usize;

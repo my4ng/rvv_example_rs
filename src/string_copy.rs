@@ -1,4 +1,4 @@
-std::arch::global_asm!(include_str!("example15_7.s"));
+std::arch::global_asm!(include_str!("string_copy.s"));
 
 extern "C" {
     fn strcpy(dst: *mut std::ffi::c_char, src: *const std::ffi::c_char);

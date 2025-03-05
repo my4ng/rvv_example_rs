@@ -1,4 +1,4 @@
-std::arch::global_asm!(include_str!("exampleA_3.s"));
+std::arch::global_asm!(include_str!("memory_copy.s"));
 
 extern "C" {
     fn memcpy(dst: *mut std::ffi::c_void, src: *const std::ffi::c_void, len: usize);

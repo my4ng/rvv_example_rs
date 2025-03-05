@@ -1,11 +1,11 @@
 #![allow(non_snake_case)]
 
-pub mod example15_7;
-pub mod example15_8;
-pub mod example6_4;
-pub mod example7_7;
-pub mod exampleA_1;
-pub mod exampleA_2;
-pub mod exampleA_3;
-pub mod exampleA_4;
-pub mod exampleA_5;
+pub mod string_copy;
+pub mod copy_non_zero;
+pub mod widen_shift;
+pub mod string_length;
+pub mod vector_addition;
+pub mod predicated_compute;
+pub mod memory_copy;
+pub mod ternary_assign;
+pub mod saxpy;

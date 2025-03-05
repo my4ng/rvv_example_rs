@@ -1,4 +1,4 @@
-std::arch::global_asm!(include_str!("exampleA_2.s"));
+std::arch::global_asm!(include_str!("predicated_compute.s"));
 
 extern "C" {
     fn predicated_compute(len: usize, xs: *const i8, ys: *mut i32, zs: *const i32);

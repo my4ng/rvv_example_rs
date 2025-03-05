@@ -1,15 +1,15 @@
-std::arch::global_asm!(include_str!("example6_4.s"));
+std::arch::global_asm!(include_str!("widen_shift.s"));
 
 extern "C" {
-    fn r#loop(len: usize, src: *const i16, dst: *mut i32);
+    fn widen_shift(len: usize, src: *const i16, dst: *mut i32);
 }
 
 /// Widen multiply and right shift by 3.
-pub fn loop_safe(src: &[i16]) -> Vec<i32> {
+pub fn widen_shift_safe(src: &[i16]) -> Vec<i32> {
     let len = src.len();
     let mut dst = Vec::with_capacity(len);
     unsafe {
-        r#loop(len, src.as_ptr(), dst.as_mut_ptr());
+        widen_shift(len, src.as_ptr(), dst.as_mut_ptr());
         dst.set_len(len);
     }
     dst
@@ -22,7 +22,7 @@ mod tests {
     #[test]
     fn test() {
         let src = (0..1000).collect::<Vec<_>>();
-        let dst = loop_safe(&src);
+        let dst = widen_shift_safe(&src);
         let res = src
             .into_iter()
             .enumerate()

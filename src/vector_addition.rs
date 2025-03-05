@@ -1,4 +1,4 @@
-std::arch::global_asm!(include_str!("exampleA_1.s"));
+std::arch::global_asm!(include_str!("vector_addition.s"));
 
 extern "C" {
     fn vvaddint32(len: usize, xs: *const i32, ys: *const i32, zs: *mut i32);
